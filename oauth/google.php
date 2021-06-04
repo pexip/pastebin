@@ -97,27 +97,14 @@ $query =  "SELECT * FROM users WHERE oauth_uid='$client_id'";
 } else {
    $new_user= 1;
   #user not present.
-  $query =  "SELECT @last_id := MAX(id) FROM users";
-  $result = mysqli_query($con,$query);
-  while($row = mysqli_fetch_array($result)) {
-  $last_id =  $row['@last_id := MAX(id)'];
-  }
-  if ($last_id== "" || $last_id==null)
-  {
-      $username = "User1";
-  }
-  else
-  {
-      $last_id = $last_id+1;  
-      $username = "User$last_id";
-  }
+  $username = explode("@", $client_email)[0];
   $_SESSION['username'] = $username;
   $_SESSION['token'] = $token;
   $_SESSION['oauth_uid'] = $client_id;
   $_SESSION['pic'] = $client_pic;
   $query = "INSERT INTO users (oauth_uid,username,email_id,full_name,platform,password,verified,picture,date,ip) VALUES ('$client_id','$username','$client_email','$client_name','$client_plat','$password','1','$client_pic','$date','$ip')"; 
   mysqli_query($con,$query); 
-  header("Location: ../oauth.php?new_user");
+  header("Location: /");
   exit();
 }
 
