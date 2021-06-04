@@ -80,11 +80,10 @@ if(isset($_SESSION['token'])) {
 <?php } if (isset($_SESSION['username'])) { ?>
 	<?php } else { ?>
 	<!-- Guest message -->
-			<div class="widget guestmsg" style="background:#1E2933;">				
-			<p class="text"><?php echo $lang['guestmsgtitle'];?></p>
-			<p class="text-body"><?php echo $lang['guestmsgbody'];?></p>
+			<div class="widget guestmsg" style="background:#1E2933;">
+			<p class="text"><?php echo $site_name;?></p>
 			</div>
-    <!-- End message -->	
+    <!-- End message -->
 <?php } 
 	if ( isset($privatesite) && $privatesite == "on") { // Remove 'recent pastes' if site is private
 	} else { ?>
