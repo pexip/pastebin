@@ -91,7 +91,6 @@ if (isset($_SESSION['captcha_mode']) == "recaptcha") {
           <li><a href="./?logout"><i class="fa falist fa-sign-out"></i> Logout</a></li>
 		<?php } else { ?>
           <li><a data-target="#signin" data-toggle="modal" href="#">Login</a></li>
-          <li><a data-target="#signup" data-toggle="modal" href="#">Register</a></li>
 		  <?php } ?>
 		</ul>
     </li>
@@ -112,33 +111,8 @@ if (isset($_SESSION['captcha_mode']) == "recaptcha") {
 			<h4 class="modal-title">Login</h4>
 		  </div>
 		  <div class="modal-body">
-			<form method="POST" action="login.php?login">
-				  <div class="input-group">
-				    <div class="input-group-addon"><i class="fa fa-user"></i></div>
-					<input type="text" name="username" class="form-control" placeholder="Username">
-				  </div><br />
-				  <div class="input-group">
-                    <div class="input-group-addon"><i class="fa fa-key"></i></div>
-					<input type="password" name="password" class="form-control" placeholder="Password">
-				  </div>
-					<div class="checkbox checkbox-primary">
-						<input id="rememberme" name="rememberme" type="checkbox" checked="">
-						<label for="rememberme">
-							<?php echo $lang['rememberme']; ?>
-						</label>
-					</div>
-				  <button type="submit" class="btn btn-default btn-block">Login</button>
-				  <a class="btn btn-light btn-block" href="login.php?forgot">Forgot Password?</a>
-				  <input type="hidden" name="signin" value="<?php echo md5($date.$ip); ?>" />
-			</form>
-			<br />
 			<!-- Oauth -->
-		<?php if ($enablefb == "no") { } else { ?>
-			<a href="oauth/facebook.php?login" class="btn btn-primary btn-block">
-				<i class="fa fa-facebook"></i>Sign in with Facebook
-			</a>
-		<?php } 
-			if ($enablegoog == "no") { } else { ?>
+		<?php if ($enablegoog == "no") { } else { ?>
 			<a href="oauth/google.php?login" class="btn btn-danger btn-block">
 				<i class="fa fa-google"></i>Sign in with Google
 			</a>
@@ -148,71 +122,6 @@ if (isset($_SESSION['captcha_mode']) == "recaptcha") {
 			  <div class="footer-links row">
 			  </div>
 			  -->			
-		  </div>
-		  <div class="modal-footer">
-			<a style="float:left;" href="login.php?register">Register</a> <a href="login.php?resend" >Resend verification email</a>
-		  </div>
-		</div>
-	  </div>
-	</div>
-
-
-
-<!-- Sign up -->
-	<div class="modal fade" id="signup" tabindex="-1" role="dialog" aria-hidden="true">
-	  <div class="modal-dialog">
-		<div class="modal-content">
-		  <div class="modal-header">
-			<button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
-			<h4 class="modal-title">Register</h4>
-		  </div>
-		  <div class="modal-body">
-			  <form method="POST" action="login.php?register">
-				<div class="form-area">
-				  <div class="input-group">
-                     <div class="input-group-addon"><i class="fa fa-user"></i></div>
-					<input type="text" name="username" class="form-control" placeholder="Username">
-				  </div>
-				  <br />
-				  <div class="input-group">
-                    <div class="input-group-addon"><i class="fa fa-user-plus"></i></div>
-					<input type="text" name="full" class="form-control" placeholder="Your Name">
-				  </div>
-				  <br />
-				  <div class="input-group">
-                    <div class="input-group-addon"><i class="fa fa-envelope"></i></div>
-					<input type="text" name="email" class="form-control" placeholder="Email">
-				  </div>
-				  <br />
-				  <div class="input-group">
-                    <div class="input-group-addon"><i class="fa fa-key"></i></div>
-					<input type="password" name="password" class="form-control" placeholder="Password">
-				  </div>
-				  <br />
-				  <button type="submit" class="btn btn-default btn-block">Register</button>
-				</div>
-					 <input type="hidden" name="signup" value="<?php echo md5($date.$ip); ?>" />
-			  </form>
-			<br />
-			<!-- Oauth -->
-		<?php if ($enablefb == "no") { } else { ?>
-			<a href="oauth/facebook.php?login" class="btn btn-primary btn-block">
-				<i class="fa fa-facebook"></i>Register with Facebook
-			</a>
-		<?php } 
-			if ($enablegoog == "no") { } else { ?>
-			<a href="oauth/google.php?login" class="btn btn-danger btn-block">
-				<i class="fa fa-google"></i>Register with Google
-			</a>
-		<?php } ?>
-			<!-- // -->			  
-			  <!--
-			  <div class="footer-links row">
-			  </div>
-			  -->
-		  </div>
-		  <div class="modal-footer">
-			<a style="float:left;" href="login.php?login">Already have an account?</a> <a href="login.php?resend" >Resend verification email</a>
 		  </div>
 		</div>
 	  </div>
