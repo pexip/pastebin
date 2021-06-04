@@ -303,6 +303,17 @@ class Google_Config
     $this->setAuthConfig('developer_key', $key);
   }
 
+ /**
+   * Set the hd (hosted domain) parameter streamlines the login process for
+   * Google Apps hosted accounts. By including the domain of the user, you
+   * restrict sign-in to accounts at that domain.
+   * @param $hd string - the domain to use.
+   */
+  public function setHostedDomain($hd)
+  {
+    $this->setAuthConfig('hd', $hd);
+  }
+
   /**
    * @return string the base URL to use for API calls
    */

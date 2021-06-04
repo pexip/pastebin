@@ -359,6 +359,17 @@ class Google_Client
   }
 
   /**
+   * Set the hd (hosted domain) parameter streamlines the login process for
+   * Google Apps hosted accounts. By including the domain of the user, you
+   * restrict sign-in to accounts at that domain.
+   * @param $hd string - the domain to use.
+   */
+  public function setHostedDomain($hd)
+  {
+    $this->config->setHostedDomain($hd);
+  }
+
+  /**
    * Fetches a fresh OAuth 2.0 access token with the given refresh token.
    * @param string $refreshToken
    * @return void
