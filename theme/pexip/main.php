@@ -27,7 +27,11 @@
 					<div class="error-pages">
 						<i class="fa fa-users fa-5x" aria-hidden="true"></i>
 						<h1><?php echo $lang['guestwelcome']; ?></h1>
-						<p><?php echo $lang['pleaseregister']; ?></p>
+						<?php if ($enablegoog == "no") { } else { ?>
+							<a href="oauth/google.php?login" class="btn btn-danger btn-block">
+								<i class="fa fa-google"></i>Sign in with Google
+							</a>
+						<?php } ?>
 					</div>
 				</div>
 			</div>
