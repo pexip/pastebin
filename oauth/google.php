@@ -34,6 +34,7 @@ if (mysqli_connect_errno())
 }
 
 $client = new Google_Client();
+$client->setHostedDomain("pexip.com");
 $client->setScopes(array(
     "https://www.googleapis.com/auth/userinfo.profile",
     "https://www.googleapis.com/auth/userinfo.email"
